@@ -43,9 +43,6 @@ exports.task_update = (req, res, next) => {
 	const { id } = req.params;
 	const { body } = req;
 
-	console.log(id);
-	console.log(body);
-
 	Task.updateOne({ _id: id }, body, err => {
 		if (err) return next(err);
 
