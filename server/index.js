@@ -21,6 +21,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('combined'));
 app.use(cors());
 
+// ROUTING
+const indexRouter = require('./routes/index');
+const tasksRouter = require('./routes/task');
+
+app.use('/', indexRouter);
+app.use('/task', tasksRouter);
+
 // error handling middleware should be loaded after the loading the routes
 if ('development' == env) {
 	app.use(errorHandler());
