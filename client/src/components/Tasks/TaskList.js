@@ -11,7 +11,7 @@ class TaskList extends Component {
 		return this.props.tasks.map(task => {
 			return (
 				<div className="item" key={task._id}>
-					<i className="large middle aligned icon camera" />
+					<i className="large middle aligned icon tasks" />
 					<div className="content">{task.title}</div>
 					<div className="description">{task.description}</div>
 				</div>
