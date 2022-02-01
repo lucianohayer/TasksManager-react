@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createTask } from '../../actions';
+import TaskForm from './TaskForm';
 
-const TaskCreate = () => {
-	return <div>Hi from TaskCreate</div>;
-};
+class TaskCreate extends Component {
+	onSubmit = formValues => {
+		this.props.createTask(formValues);
+	};
 
-export default TaskCreate;
+	render() {
+		return (
+			<div>
+				<h3>Create a task</h3>
+				<TaskForm onSubmit={this.onSubmit} />
+			</div>
+		);
+	}
+}
+
+export default connect(null, { createTask })(TaskCreate);

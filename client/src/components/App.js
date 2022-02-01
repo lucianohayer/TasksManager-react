@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
+import history from '../history';
+
 import TaskList from './Tasks/TaskList';
 import TaskCreate from './Tasks/TaskCreate';
 import TaskEdit from './Tasks/TaskEdit';
@@ -9,7 +11,7 @@ import TaskShow from './Tasks/TaskShow';
 const App = () => {
 	return (
 		<div className="ui container">
-			<BrowserRouter>
+			<Router history={history}>
 				<Switch>
 					<Route path="/" exact component={TaskList} />
 					<Route path="/task/new" exact component={TaskCreate} />
@@ -17,7 +19,7 @@ const App = () => {
 					<Route path="/task/delete/:id" exact component={TaskDelete} />
 					<Route path="/task/:id" exact component={TaskShow} />
 				</Switch>
-			</BrowserRouter>
+			</Router>
 		</div>
 	);
 };
